@@ -10,6 +10,12 @@ export interface MarqueeInterface {
     newsData: NewsData
 }
 
+export interface NewsDataInterface {
+    status: string,
+    totalResults: number,
+    articles: NewsArticlesData[]
+}
+
 export interface NewsArticlesData {
     author: string,
     content: string,

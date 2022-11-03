@@ -4,7 +4,7 @@ import { keyframes } from '@emotion/react'
 import styled from '@emotion/styled/macro'
 import { useQuery } from "@tanstack/react-query"
 import axios from "axios"
-import { NewsArticlesData } from "../types/CardInfoTypes"
+import { NewsDataInterface } from "../types/CardInfoTypes"
 
 const marqueeAnimation = keyframes`
   0% {
@@ -25,7 +25,7 @@ const NEWS_URL = "https://saurav.tech/NewsAPI/everything/cnn.json"
 const useNews = () => useQuery({
   queryKey: ["news"],
   queryFn: async () => {
-    const { data } = await axios.get(NEWS_URL)
+    const { data } = await axios.get<NewsDataInterface>(NEWS_URL)
     return data
   },
 })
@@ -37,7 +37,7 @@ export const Marquee = memo(() => {
     <MarqueeBox>
       <Box display="flex" flexDirection="row">
         {!isFetching && !error &&
-          newsData?.articles?.map((article: NewsArticlesData, index: number) =>
+          newsData?.articles?.map((article, index: number) =>
             <Typography key={index} noWrap>{article.title}&nbsp; | &nbsp;</Typography>)
         }
       </Box>
