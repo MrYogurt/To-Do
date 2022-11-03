@@ -22,8 +22,8 @@ const MarqueeBox = styled(Box)`
 
 const NEWS_URL = "https://saurav.tech/NewsAPI/everything/cnn.json"
 
-const useTasks = () => useQuery({
-  queryKey: ["tasks"],
+const useNews = () => useQuery({
+  queryKey: ["news"],
   queryFn: async () => {
     const { data } = await axios.get(NEWS_URL)
     return data
@@ -31,14 +31,14 @@ const useTasks = () => useQuery({
 })
 
 export const Marquee = () => {
-  const { data: newsData, error, isFetching } = useTasks()
+  const { data: newsData, error, isFetching } = useNews()
 
   return (
     <MarqueeBox>
       <Box display="flex" flexDirection="row">
         {!isFetching && !error &&
-          newsData?.articles?.map((article: NewsArticlesData) =>
-            <Typography noWrap>{article.title}&nbsp; | &nbsp;</Typography>)
+          newsData?.articles?.map((article: NewsArticlesData, index: number) =>
+            <Typography key={index} noWrap>{article.title}&nbsp; | &nbsp;</Typography>)
         }
       </Box>
     </MarqueeBox>

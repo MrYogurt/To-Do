@@ -1,9 +1,9 @@
-import React from "react"
+import React, { memo } from "react"
 import { MockDataInterface } from "../types/CardInfoTypes"
 import { TasksAccordion } from "./TasksAccordion"
 import { TasksCard } from "./TasksCard"
 
-export const Cards: React.FC<{ data: MockDataInterface[] }> = ({ data }) => {
+export const Cards: React.FC<{ data: MockDataInterface[] }> = memo(({ data }) => {
     return (
       <>
         {data.map((tasksSet, indexOfTasksSet) =>
@@ -13,4 +13,4 @@ export const Cards: React.FC<{ data: MockDataInterface[] }> = ({ data }) => {
         )}
       </>
     )
-}
+})

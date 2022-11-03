@@ -1,10 +1,10 @@
-import React from "react"
+import React, { memo } from "react"
 import { Box, Dialog, Typography } from "@mui/material"
 import { Switcher } from "./Switcher"
 import { SettingsModalInterface } from "../types/CardInfoTypes"
 import { COLORS } from "../utils/Constants"
 
-export const SettingsModal: React.FC<SettingsModalInterface> = ({
+export const SettingsModal: React.FC<SettingsModalInterface> = memo(({
     isOpen,
     marqueeEnabled,
     handleCloseModal,
@@ -36,4 +36,4 @@ export const SettingsModal: React.FC<SettingsModalInterface> = ({
         </Box>
       </Dialog>
     )
-}
+})

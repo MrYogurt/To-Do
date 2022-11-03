@@ -1,10 +1,10 @@
-import React from "react"
+import React, { memo } from "react"
 import { SettingsIcon } from "../icons/SettingsIcon"
 import { Box, IconButton, Typography } from "@mui/material"
 import { CheckIcon } from '../icons/CheckIcon'
 import { HeaderInterface } from "../types/CardInfoTypes"
 
-export const Header: React.FC<HeaderInterface> = ({ handleOpenModal }) => {
+export const Header: React.FC<HeaderInterface> = memo(({ handleOpenModal }) => {
     return (
         <>
           <Box pl={2} display="flex" flexDirection="row" justifyContent="space-between">
@@ -19,4 +19,4 @@ export const Header: React.FC<HeaderInterface> = ({ handleOpenModal }) => {
           </Box>
         </>
     )
-}
+})
