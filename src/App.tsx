@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useCallback, useState } from 'react'
 import { Box, Slide } from '@mui/material'
 import { AppContext } from './utils/Contexts'
 import { AppInterface, MockDataInterface } from './types/CardInfoTypes'
@@ -21,8 +21,8 @@ const App: React.FC<AppInterface> = ({ mockedData }) => {
     })
   }
 
-  const handleOpenModal = () => setOpen(true)
-  const handleCloseModal = () => setOpen(false)
+  const handleOpenModal = useCallback(() => setOpen(true), [])
+  const handleCloseModal = useCallback(() => setOpen(false), [])
 
   return (
     <AppContext.Provider value={[handleToggleCompleting]}>
