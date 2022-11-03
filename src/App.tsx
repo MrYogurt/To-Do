@@ -25,7 +25,7 @@ const App: React.FC<AppInterface> = ({ mockedData }) => {
   const handleCloseModal = useCallback(() => setOpen(false), [])
 
   return (
-    <AppContext.Provider value={[handleToggleCompleting]}>
+    <AppContext.Provider value={{ handleToggleCompleting }}>
       <Box width="390px" p={2} px={4}>
         <Header handleOpenModal={handleOpenModal} />
         <Cards data={data} />

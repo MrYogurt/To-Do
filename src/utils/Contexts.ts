@@ -1,3 +1,7 @@
 import React from "react";
 
-export const AppContext = React.createContext<any | undefined>(undefined)
+interface AppContextInterface {
+    handleToggleCompleting: (indexOfTasksSet: number, indexOfTask: number, status: boolean) => void
+}
+
+export const AppContext = React.createContext<AppContextInterface>({ handleToggleCompleting: () => {} })

@@ -5,7 +5,7 @@ import { TaskItemInterface } from "@/types/CardInfoTypes"
 import { AppContext } from "../utils/Contexts"
 
 export const TaskItem: React.FC<TaskItemInterface> = ({ taskData, indexOfTask, indexOfTasksSet }) => {
-    const [ handleToggleCompleting ] = useContext(AppContext)
+    const { handleToggleCompleting } = useContext(AppContext)
 
     const handleChange = () => {
         handleToggleCompleting(indexOfTasksSet, indexOfTask, !taskData.completed)

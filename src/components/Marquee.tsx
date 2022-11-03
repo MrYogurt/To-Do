@@ -1,4 +1,4 @@
-import React from "react"
+import React, { memo } from "react"
 import { Box, Typography } from "@mui/material"
 import { keyframes } from '@emotion/react'
 import styled from '@emotion/styled/macro'
@@ -30,7 +30,7 @@ const useNews = () => useQuery({
   },
 })
 
-export const Marquee = () => {
+export const Marquee = memo(() => {
   const { data: newsData, error, isFetching } = useNews()
 
   return (
@@ -43,4 +43,4 @@ export const Marquee = () => {
       </Box>
     </MarqueeBox>
   )
-}
+})
